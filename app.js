@@ -1,5 +1,5 @@
 /* Mahligai Seni - laman galeri (final)
-   Pure static: data dimuat dari data/products.json + data/collections.json.
+   Pure static: data dimuat dari data/products.json + data/collections.json + data/rooms.json.
    Tiada troli; setiap produk dipautkan ke halaman produk Shopee. */
 (function () {
   "use strict";
@@ -9,23 +9,22 @@
   var PAGE_SIZE = 24;
   var NEW_DAYS = 90;                 // "Baharu" hanya jika dicipta dalam ~90 hari
   var DECOR = { "khat-3d-cantum": 1, "frame-minimalis-3d": 1, "frame-ayat-doa": 1, "asmaul-husna": 1, "kaabah-masjid": 1 };
-  // Hero: produk pilihan (yang pertama dipaparkan besar). Jika ada yang
-  // tiada dalam data, tempat kosong diisi dengan produk terbaru.
-  var HERO_PICKS = ["19976012599", "18495308634", "52260663122"];
-  var HERO_COUNT = 3;
   // Nilai ?susun= dalam URL <-> nilai dalaman
   var SORT_URL = { "sold": "terlaris", "price-asc": "harga-rendah", "price-desc": "harga-tinggi", "new": "terbaru" };
   var SORT_FROM_URL = {};
   Object.keys(SORT_URL).forEach(function (k) { SORT_FROM_URL[SORT_URL[k]] = k; });
 
-  var GRID_SIZES = "(min-width: 1240px) 290px, (min-width: 1080px) 23vw, (min-width: 720px) 31vw, 48vw";
-  var FEAT_SIZES = "(min-width: 1240px) 600px, (min-width: 1080px) 47vw, (min-width: 720px) 63vw, 48vw";
+  var GRID_SIZES = "(min-width: 1320px) 300px, (min-width: 1080px) 23vw, (min-width: 720px) 31vw, 48vw";
+  var FEAT_SIZES = "(min-width: 1320px) 620px, (min-width: 1080px) 47vw, (min-width: 720px) 63vw, 96vw";
 
   var state = {
     products: [],
     byId: {},
     collections: [],
     collBySlug: {},
+    rooms: [],
+    roomBySlug: {},
+    room: "",
     coll: "semua",
     query: "",
     rawQuery: "",
@@ -49,9 +48,11 @@
     search: $("#search"),
     searchClear: $("#search-clear"),
     sort: $("#sort"),
+    room: $("#room"),
+    roomActive: $("#room-active"),
+    roomActiveName: $("#room-active-name"),
+    roomClear: $("#room-clear"),
     collDesc: $("#coll-desc"),
-    collIndex: $("#collection-index"),
-    hero: $("#hero-feature"),
     modal: $("#modal"),
     panel: $("#modal-panel"),
     body: $("#modal-body"),
@@ -65,7 +66,7 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
   function img(path) { return ROOT + path; }
-  function srcset(im) { return esc(img(im.sm)) + " 480w, " + esc(img(im.lg)) + " 1200w"; }
+  function srcset(im) { return esc(img(im.sm)) + " 480w, " + esc(img(im.lg)) + " 1024w"; }
   function norm(s) {
     return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "")
       .toLowerCase().replace(/\s+/g, " ").trim();
@@ -134,9 +135,12 @@
     var s = q.get("susun");
     if (s && SORT_FROM_URL[s]) state.sort = SORT_FROM_URL[s];
     els.sort.value = state.sort;
+    var r = q.get("ruang");
+    if (r && state.roomBySlug[r]) state.room = r;
   }
   function writeURLState() {
     var q = new URLSearchParams();
+    if (state.room) q.set("ruang", state.room);
     if (state.coll !== "semua") q.set("koleksi", state.coll);
     if (state.rawQuery.trim()) q.set("cari", state.rawQuery.trim());
     if (state.sort !== "sold") q.set("susun", SORT_URL[state.sort]);
@@ -150,10 +154,16 @@
   /* ---------- data ---------- */
   Promise.all([
     fetch(ROOT + "data/products.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
-    fetch(ROOT + "data/collections.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    fetch(ROOT + "data/collections.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
+    // Tag ruang: tidak kritikal, katalog tetap berfungsi tanpanya
+    fetch(ROOT + "data/rooms.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .catch(function (err) { console.warn("Tag ruang tidak dapat dimuatkan:", err); return {}; })
   ]).then(function (res) {
-    var pdata = res[0], cdata = res[1];
+    var pdata = res[0], cdata = res[1], rdata = res[2] || {};
     var map = cdata.products || {};
+    var roomMap = rdata.products || {};
+    state.rooms = rdata.rooms || [];
+    state.rooms.forEach(function (r) { state.roomBySlug[r.slug] = r; });
     state.collections = (cdata.collections || []).slice();
     state.collections.forEach(function (c) { state.collBySlug[c.slug] = c; c.count = 0; });
 
@@ -161,6 +171,7 @@
       var m = map[String(p.id)] || {};
       p._coll = m.collection || "";
       p._tags = m.tags || [];
+      p._rooms = roomMap[String(p.id)] || [];
       p._name = cleanName(p.name) || p.name;
       p.images = p.images || [];
       if (state.collBySlug[p._coll]) state.collBySlug[p._coll].count++;
@@ -175,13 +186,17 @@
     state.collBySlug = {};
     state.collections.forEach(function (c) { state.collBySlug[c.slug] = c; });
 
+    // Pilihan ruang dalam toolbar hanya untuk ruang yang wujud dalam data
+    if (!state.rooms.length) els.room.closest(".field").hidden = true;
+    each(els.room.querySelectorAll("option[value]"), function (o) {
+      if (o.value && !state.roomBySlug[o.value]) o.remove();
+    });
+
     readURLState();
     syncClear();
-    renderStats();
-    renderHero();
-    renderCollections();
     renderChips();
     syncCollUI();
+    syncRoomUI();
     applyFilters();
     handleRoute(true);
     // Pautan dalam halaman selepas kandungan async mengubah susun atur
@@ -195,85 +210,47 @@
     els.grid.innerHTML = "";
     els.grid.removeAttribute("aria-busy");
     els.error.hidden = false;
-    els.hero.innerHTML = "";
   });
 
-  /* ---------- hero ---------- */
-  function renderStats() {
-    var sold = state.products.reduce(function (a, p) { return a + (p.sold || 0); }, 0);
-    var set = function (k, v) { var el = document.querySelector('[data-stat="' + k + '"]'); if (el) el.textContent = v; };
-    set("products", state.products.length);
-    set("collections", state.collections.length);
-    set("sold", compact(sold));
-    var full = document.querySelector('[data-stat="sold"]');
-    if (full) full.setAttribute("title", sold.toLocaleString("en-MY") + " unit");
-  }
-
-  function renderHero() {
-    var chosen = HERO_PICKS.map(function (id) { return state.byId[id]; })
-      .filter(function (p) { return p && p.images.length; });
-    var latest = state.products.filter(function (p) { return p.images.length && chosen.indexOf(p) < 0; })
-      .sort(function (a, b) { return b.created - a.created; });
-    var picks = chosen.concat(latest).slice(0, HERO_COUNT)
-      .map(function (p) { return { p: p, im: p.images[0] }; });
-    var main = picks[0], side = picks.slice(1, 3);
-    if (!main) { els.hero.innerHTML = ""; return; }
-    var mp = main.p;
-    var mSold = soldText(mp);
-    var html = '<div class="feature-layout">' +
-      '<div class="feature-badge" aria-hidden="true"><div>Pilihan<b>Galeri</b></div></div>' +
-      '<a class="feature-main" href="#produk/' + mp.id + '" data-open="' + mp.id + '">' +
-        '<div class="frame-img mat"><img class="fade" src="' + esc(img(main.im.lg)) + '" srcset="' + srcset(main.im) + '" sizes="(min-width: 960px) 34vw, 92vw" alt="' + esc(mp._name) + '" width="1200" height="1200" fetchpriority="high" decoding="async"></div>' +
-        '<div class="feature-caption">' +
-          '<span class="kicker">' + esc(collName(mp) || "Karya pilihan") + '</span>' +
-          '<span class="ttl">' + esc(shortTitle(mp._name)) + '</span>' +
-          '<span class="meta"><strong>' + (mp.price_max > mp.price_min ? "Dari " : "") + money(mp.price_min) + '</strong>' + esc(mSold) + '</span>' +
-        '</div>' +
-      '</a>' +
-      '<div class="feature-side">' +
-        side.map(function (x) {
-          return '<a class="feature-tile" href="#produk/' + x.p.id + '" data-open="' + x.p.id + '">' +
-            '<div class="frame-img mat"><img class="fade" src="' + esc(img(x.im.sm)) + '" srcset="' + srcset(x.im) + '" sizes="(min-width: 960px) 17vw, (min-width: 600px) 34vw, 46vw" alt="' + esc(x.p._name) + '" width="480" height="480" decoding="async"></div>' +
-            '<span>' + esc(shortTitle(x.p._name)) + '</span></a>';
-        }).join("") +
-      '</div></div>';
-    els.hero.innerHTML = html;
-    markCompleted(els.hero);
-  }
-
-  // Pendekkan tajuk marketplace yang panjang untuk kapsyen (paparan sahaja)
-  function shortTitle(name) {
-    var s = name.split(/\s[|\/]\s|\s-\s/)[0];
-    s = s.replace(/[A-Z][A-Z'\-]+/g, function (w) {
-      return /\d/.test(w) || w.length <= 2 ? w : w.charAt(0) + w.slice(1).toLowerCase();
+  /* ---------- ruang (data/rooms.json) ---------- */
+  function syncRoomUI() {
+    var r = state.room ? state.roomBySlug[state.room] : null;
+    els.room.value = state.room;
+    els.roomActive.hidden = !r;
+    els.roomActiveName.textContent = r ? r.name : "";
+    each(document.querySelectorAll("a[data-room]"), function (a) {
+      if (a.getAttribute("data-room") === state.room) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
     });
-    if (s.length > 64) s = s.slice(0, 62).replace(/\s+\S*$/, "") + "…";
-    return s;
   }
+
+  function scrollToCatalogue() {
+    var cat = document.getElementById("katalog");
+    cat.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  }
+
+  function setRoom(slug, scroll) {
+    state.room = slug && state.roomBySlug[slug] ? slug : "";
+    state.shown = PAGE_SIZE;
+    syncRoomUI();
+    applyFilters();
+    if (scroll) scrollToCatalogue();
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[data-room]");
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (!state.products.length) return;           // data belum sedia: biar pautan biasa (?ruang=) berfungsi
+    e.preventDefault();
+    setRoom(a.getAttribute("data-room"), true);
+  });
+  els.room.addEventListener("change", function () { setRoom(els.room.value, false); });
+  els.roomClear.addEventListener("click", function () {
+    setRoom("", false);
+    els.room.focus();
+  });
 
   /* ---------- koleksi ---------- */
-  function coverFor(slug) {
-    var best = null;
-    state.products.forEach(function (p) {
-      if (p._coll === slug && p.images.length && (!best || p.sold > best.sold)) best = p;
-    });
-    return best;
-  }
-
-  function renderCollections() {
-    els.collIndex.innerHTML = state.collections.map(function (c) {
-      var cover = coverFor(c.slug);
-      return '<li><button type="button" class="coll-card" data-coll="' + esc(c.slug) + '" aria-pressed="false">' +
-        '<span class="thumb">' + (cover ? '<img class="fade" src="' + esc(img(cover.images[0].sm)) + '" alt="" width="480" height="480" loading="lazy" decoding="async">' : "") + '</span>' +
-        '<span><span class="num" aria-hidden="true"></span>' +
-        '<span class="nm">' + esc(c.name) + '</span>' +
-        '<span class="ds">' + esc(c.description || "") + '</span>' +
-        '<span class="ct">' + c.count + ' produk</span></span>' +
-      '</button></li>';
-    }).join("");
-    markCompleted(els.collIndex);
-  }
-
   function renderChips() {
     var all = [{ slug: "semua", name: "Semua", count: state.products.length }].concat(state.collections);
     els.chips.innerHTML = all.map(function (c) {
@@ -306,19 +283,13 @@
     state.shown = PAGE_SIZE;
     syncCollUI();
     applyFilters();
-    if (scroll) {
-      var cat = document.getElementById("katalog");
-      cat.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-    }
+    if (scroll) scrollToCatalogue();
   }
 
-  document.addEventListener("click", function (e) {
+  els.chips.addEventListener("click", function (e) {
     var b = e.target.closest("[data-coll]");
     if (!b) return;
-    var slug = b.getAttribute("data-coll");
-    var fromIndex = b.classList.contains("coll-card");
-    if (fromIndex && state.coll === slug) slug = "semua";
-    setCollection(slug, fromIndex);
+    setCollection(b.getAttribute("data-coll"), false);
   });
 
   /* ---------- katalog ---------- */
@@ -365,6 +336,8 @@
     state.query = "";
     state.rawQuery = "";
     syncClear();
+    state.room = "";
+    syncRoomUI();
     setCollection("semua", false);
     els.search.focus();
   });
@@ -373,6 +346,7 @@
     var terms = state.query ? state.query.split(" ") : [];
     var list = state.products.filter(function (p) {
       if (state.coll !== "semua" && p._coll !== state.coll) return false;
+      if (state.room && p._rooms.indexOf(state.room) < 0) return false;
       for (var i = 0; i < terms.length; i++) if (p._search.indexOf(terms[i]) < 0) return false;
       return true;
     });
@@ -384,7 +358,7 @@
       "new": function (a, b) { return b.created - a.created; }
     }[state.sort];
     list.sort(cmp);
-    var isDefault = state.sort === "sold" && state.coll === "semua" && !state.query;
+    var isDefault = state.sort === "sold" && state.coll === "semua" && !state.query && !state.room;
     // Paparan lalai: bawa hiasan dinding terlaris ke kedudukan pertama (selebihnya kekal ikut jualan)
     if (isDefault) {
       for (var d = 0; d < list.length; d++) {
@@ -414,7 +388,7 @@
     var sold = p.sold > 0 ? compact(p.sold) + " terjual" : "";
     return '<li class="' + (feat ? "is-feature" : "") + '"><article class="card' + (feat ? " card--feature" : "") + '">' +
       '<div class="card-media">' +
-        (first ? '<img class="fade" src="' + esc(img(first.sm)) + '" srcset="' + srcset(first) + '" sizes="' + (feat ? FEAT_SIZES : GRID_SIZES) + '" alt="' + esc(p._name) + '" width="480" height="480"' + (i < 4 ? '' : ' loading="lazy"') + ' decoding="async">' : "") +
+        (first ? '<img class="fade" src="' + esc(img(first.sm)) + '" srcset="' + srcset(first) + '" sizes="' + (feat ? FEAT_SIZES : GRID_SIZES) + '" alt="' + esc(p._name) + '" width="480" height="480" loading="lazy" decoding="async">' : "") +
         tag +
         (feat ? '<span class="card-ribbon">Hiasan Dinding</span>' : "") +
       '</div>' +
@@ -443,7 +417,8 @@
     }
     markCompleted(els.grid);
     var cname = state.coll !== "semua" && state.collBySlug[state.coll] ? state.collBySlug[state.coll].name : "";
-    var ctx = (cname ? " dalam <em>" + esc(cname) + "</em>" : "") + (state.query ? " untuk “" + esc(state.rawQuery.trim()) + "”" : "");
+    var rname = state.room && state.roomBySlug[state.room] ? state.roomBySlug[state.room].name : "";
+    var ctx = (cname ? " dalam <em>" + esc(cname) + "</em>" : "") + (rname ? " bagi <em>" + esc(rname) + "</em>" : "") + (state.query ? " untuk “" + esc(state.rawQuery.trim()) + "”" : "");
     els.count.innerHTML = "<strong>" + list.length + "</strong> produk" + ctx;
     els.empty.hidden = list.length > 0;
     var remaining = list.length - end;

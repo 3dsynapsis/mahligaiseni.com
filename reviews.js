@@ -55,7 +55,7 @@
       '<div class="rv-photo"><img src="' + esc(main.sm) + '" srcset="' + esc(main.sm) + ' 480w, ' + esc(main.lg) + ' 1200w" sizes="(min-width: 1080px) 380px, 82vw" alt="Gambar pelanggan: ' + esc(shortName(r.product_name)) + '" width="' + (main.w || 1200) + '" height="' + (main.h || 1200) + '" loading="lazy" decoding="async"></div>' +
       thumbs +
       '<div class="rv-body">' +
-        '<p class="rv-stars" aria-label="' + r.stars + ' bintang">' + "★★★★★".slice(0, r.stars) + '</p>' +
+        '<p class="rv-stars"><span aria-hidden="true">' + "★★★★★".slice(0, r.stars) + '</span><span class="sr-only">' + r.stars + ' bintang</span></p>' +
         '<blockquote class="rv-text">' + textHTML(r.text) + '</blockquote>' +
         '<p class="rv-meta"><span class="rv-buyer">' + esc(r.buyer) + '</span> &middot; <time datetime="' + new Date(r.time * 1000).toISOString().slice(0, 10) + '">' + date(r.time) + '</time></p>' +
         '<a class="rv-product" href="#produk/' + r.product_id + '">' + esc(shortName(r.product_name)) + ' <span aria-hidden="true">&rarr;</span></a>' +

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mahligai Seni | Khat 3D, Frame Kaligrafi &amp; Hiasan Rumah Islamik</title>
+  <meta name="description" content="Galeri Mahligai Seni: Khat 3D Cantum, frame kaligrafi potongan laser, frame Asmaul Husna, hiasan cermin akrilik dan aksesori Islamik. Lihat produk di sini dan beli terus di kedai Shopee kami.">
+  <meta name="theme-color" content="#0f3b2e">
+  <meta property="og:title" content="Mahligai Seni | Hiasan Rumah Islamik">
+  <meta property="og:description" content="Khat 3D Cantum, frame kaligrafi dan hiasan rumah Islamik. Pembelian diselesaikan di Shopee.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ms_MY">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon.png">
+  <link rel="apple-touch-icon" href="assets/brand/emblem-gold.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Amiri: subset huruf bismillah hiasan sahaja -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&text=%D8%A8%D9%90%D8%B3%D9%92%D9%85%D9%90%20%D9%B1%D9%84%D9%84%D9%8E%D9%91%D9%B0%D9%87%D9%90&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#katalog">Langkau ke katalog</a>
+
+  <header class="site-header" id="atas">
+    <div class="wrap header-inner">
+      <a class="brand" href="#atas" aria-label="Mahligai Seni, ke atas halaman">
+        <img class="brand-logo" src="assets/brand/logo-dark.png" width="461" height="199" alt="Mahligai Seni">
+      </a>
+      <nav class="header-nav" aria-label="Navigasi utama">
+        <a href="#koleksi" class="nav-link hide-sm">Koleksi</a>
+        <a href="#katalog" class="nav-link hide-sm">Katalog</a>
+        <a href="#ulasan" class="nav-link hide-sm">Ulasan</a>
+        <a href="#lokasi" class="nav-link hide-sm">Lokasi</a>
+        <a class="btn btn-outline btn-sm" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">
+          Kedai Shopee <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka tab baharu)</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="rule" aria-hidden="true"></span>Edisi Rumah &middot; Seni Kaligrafi</p>
+          <h1 id="hero-title" class="hero-title">
+            Kalam yang indah,<br><em>diukir</em> untuk dinding rumah anda.
+          </h1>
+          <p class="hero-lede">
+            Frame kaligrafi potongan laser, Khat 3D Cantum dan hiasan Islamik oleh Mahligai Seni.
+            Terokai galeri di sini, kemudian lengkapkan pembelian dengan selamat di kedai Shopee kami.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#katalog">Lihat Katalog</a>
+            <a class="btn btn-ghost" href="#koleksi">Terokai Koleksi</a>
+          </div>
+          <dl class="hero-stats" id="hero-stats" aria-live="polite">
+            <div><dt>Produk</dt><dd data-stat="products">&mdash;</dd></div>
+            <div><dt>Koleksi</dt><dd data-stat="collections">&mdash;</dd></div>
+            <div><dt>Unit terjual di Shopee</dt><dd data-stat="sold">&mdash;</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-feature" id="hero-feature">
+          <!-- filled by app.js -->
+          <div class="feature-frame skeleton" aria-hidden="true"></div>
+        </div>
+      </div>
+      <p class="hero-arabic" aria-hidden="true" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ</p>
+    </section>
+
+    <!-- COLLECTION INDEX -->
+    <section class="collections" id="koleksi" aria-labelledby="koleksi-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow"><span class="rule" aria-hidden="true"></span>Indeks</p>
+          <h2 id="koleksi-title" class="section-title">Koleksi Galeri</h2>
+          <p class="section-note">Pilih satu koleksi untuk menapis katalog.</p>
+        </div>
+        <ol class="collection-index" id="collection-index"></ol>
+      </div>
+    </section>
+
+    <!-- CATALOGUE -->
+    <section class="catalogue" id="katalog" aria-labelledby="katalog-title" tabindex="-1">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow"><span class="rule" aria-hidden="true"></span>Katalog</p>
+          <h2 id="katalog-title" class="section-title">Semua Karya</h2>
+        </div>
+
+        <div class="toolbar">
+          <div class="chip-row" role="group" aria-label="Tapis mengikut koleksi" id="chip-row"></div>
+          <div class="toolbar-controls">
+            <div class="field field-search">
+              <label for="search" class="sr-only">Cari produk</label>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="field-icon"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+              <input id="search" type="search" placeholder="Cari nama, SKU atau koleksi..." autocomplete="off" spellcheck="false" enterkeyhint="search">
+              <button type="button" class="search-clear" id="search-clear" aria-label="Kosongkan carian" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>
+              </button>
+            </div>
+            <div class="field field-select">
+              <label for="sort">Susun</label>
+              <select id="sort">
+                <option value="sold">Terlaris</option>
+                <option value="price-asc">Harga: Rendah ke Tinggi</option>
+                <option value="price-desc">Harga: Tinggi ke Rendah</option>
+                <option value="new">Terbaru</option>
+              </select>
+            </div>
+          </div>
+          <p class="result-count" id="result-count" role="status" aria-live="polite">Memuatkan produk...</p>
+        </div>
+        <p class="coll-desc" id="coll-desc" aria-live="polite" hidden></p>
+
+        <ul class="grid" id="grid" aria-label="Senarai produk" aria-busy="true">
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+          <li class="sk-card" aria-hidden="true"><div class="sk-media skeleton"></div><div class="sk-line skeleton"></div><div class="sk-line short skeleton"></div></li>
+        </ul>
+
+        <div class="empty" id="empty" hidden>
+          <svg viewBox="0 0 40 40" aria-hidden="true"><use href="#khatam"/></svg>
+          <p>Tiada produk yang sepadan. Cuba kata kunci lain atau pilih <button type="button" class="linklike" id="reset-filters">Semua</button>.</p>
+        </div>
+
+        <div class="more-wrap">
+          <button type="button" class="btn btn-outline" id="more-btn" hidden>Paparkan lagi</button>
+          <div class="more-status">
+            <p class="more-note" id="more-note"></p>
+            <div class="more-progress" id="more-progress" role="progressbar" aria-labelledby="more-note" aria-valuemin="0" aria-valuenow="0" aria-valuemax="0" hidden>
+              <span class="more-bar" id="more-bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="load-error" id="load-error" role="alert" hidden>
+          Maaf, katalog tidak dapat dimuatkan. Sila muat semula halaman atau lawati
+          <a href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">kedai Shopee kami</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS (data/reviews.json, filled by reviews.js) -->
+    <section class="reviews" id="ulasan" aria-labelledby="ulasan-title" hidden>
+      <div class="wrap">
+        <div class="reviews-head">
+          <div class="section-head">
+            <p class="eyebrow"><span class="rule" aria-hidden="true"></span>Suara Pelanggan</p>
+            <h2 id="ulasan-title" class="section-title">Dari rumah pelanggan kami.</h2>
+            <p class="section-note" id="reviews-note"></p>
+          </div>
+          <a class="rating-badge" id="rating-badge" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="review-track" id="review-track" tabindex="0" aria-label="Ulasan pelanggan, tatal ke kanan untuk lagi"></div>
+        <div class="review-nav">
+          <button type="button" class="review-btn" id="review-prev" aria-label="Ulasan sebelumnya">&larr;</button>
+          <button type="button" class="review-btn" id="review-next" aria-label="Ulasan seterusnya">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT / LOCATION -->
+    <section class="visit" id="lokasi" aria-labelledby="lokasi-title">
+      <div class="wrap">
+        <div class="visit-head">
+          <h2 id="lokasi-title" class="visit-title">Singgah. Lihat.<br><em>Rasai sendiri.</em></h2>
+          <p class="visit-lede">Lihat sendiri kemasan khat dan frame kami sebelum membuat pilihan. Pelanggan dialu-alukan untuk singgah ke premis Mahligai Seni di Shah Alam.</p>
+        </div>
+
+        <div class="visit-grid">
+          <figure class="visit-media" id="visit-media">
+            <!-- Gambar premis: letak fail di assets/brand/premis.webp dan buang komen di bawah
+            <img src="assets/brand/premis.webp" alt="Premis Mahligai Seni di Shah Alam" width="1200" height="1500" loading="lazy"> -->
+            <iframe class="visit-map" title="Peta lokasi Mahligai Seni, Shah Alam"
+              src="https://maps.google.com/maps?q=Mahligai%20Seni%20%4003.0660296%2C101.4726026&amp;ll=3.0660296,101.4726026&amp;z=16&amp;output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+
+          <div class="visit-info">
+            <p class="eyebrow"><span class="rule" aria-hidden="true"></span>Jumpa kami di sini</p>
+            <h3 class="visit-name">Mahligai Seni</h3>
+            <address class="visit-address">
+              68, Jalan Keluli AN7/AN,<br>
+              Taman Perindustrian Bukit Raja Selatan,<br>
+              40000 Shah Alam, Selangor, Malaysia.
+            </address>
+
+            <div class="visit-hours">
+              <h4>Waktu operasi</h4>
+              <dl id="visit-hours-list">
+                <dt>Isnin &ndash; Ahad</dt><dd>9:45 pagi &ndash; 7:00 petang</dd>
+              </dl>
+              <p class="visit-small" id="visit-hours-note">Buka setiap hari. Hubungi kami melalui WhatsApp sebelum berkunjung pada cuti umum.</p>
+            </div>
+
+            <div class="visit-actions">
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/uEPovgT8h4JL3fDr8" target="_blank" rel="noopener">
+                Dapatkan arah <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka Google Maps dalam tab baharu)</span>
+              </a>
+              <a class="visit-wa" href="https://wa.me/60149272339?text=Assalamualaikum%2C%20saya%20ingin%20singgah%20ke%20premis%20Mahligai%20Seni." target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.5c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .5.4l.7 1.6c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.3 0 .5.5.9 1.3 1.7 2.3 2.2.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.3.6-.2.9-1 1.6-1.9 1.6-2.9-.2-5.5-2.8-5.8-5.6 0-.8.3-1.5.9-2Z" fill="currentColor"/></svg>
+                WhatsApp 014-927 2339 <span class="sr-only">(buka tab baharu)</span>
+              </a>
+            </div>
+            <p class="visit-small">Pembelian dalam talian tetap diselesaikan di kedai Shopee kami.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-pattern" aria-hidden="true"></div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <div>
+          <img class="footer-logo" src="assets/brand/logo-gold.png" width="1200" height="518" alt="Mahligai Seni" loading="lazy">
+          <p class="footer-line">Hiasan rumah Islamik, frame kaligrafi dan Khat 3D potongan laser.</p>
+        </div>
+      </div>
+      <div class="footer-shop">
+        <p class="footer-note">
+          Laman ini ialah galeri produk. Semua pembelian, pembayaran dan penghantaran
+          diselesaikan di Shopee. Harga dan stok di sini mungkin berbeza; rujuk halaman Shopee untuk maklumat terkini.
+        </p>
+        <a class="btn btn-gold" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">
+          Lawati Kedai Shopee <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka tab baharu)</span>
+        </a>
+      </div>
+    </div>
+    <div class="wrap footer-base">
+      <p>&copy; <span id="year">2026</span> Mahligai Seni &middot; mahligaiseni.com</p>
+      <a href="#atas" class="nav-link">Kembali ke atas &uarr;</a>
+    </div>
+  </footer>
+
+  <!-- PRODUCT DETAIL DIALOG -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="pd-title" tabindex="-1" id="modal-panel">
+      <button type="button" class="modal-close" data-close aria-label="Tutup butiran produk">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- SVG sprite: eight-point khatam star -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="khatam" viewBox="0 0 40 40">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+        <rect x="8" y="8" width="24" height="24"/>
+        <rect x="8" y="8" width="24" height="24" transform="rotate(45 20 20)"/>
+        <circle cx="20" cy="20" r="5.2"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <script src="app.js" defer></script>
+  <script src="reviews.js" defer></script>
+</body>
+</html>

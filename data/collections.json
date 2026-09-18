@@ -1,0 +1,682 @@
+{
+ "collections": [
+  {
+   "slug": "khat-3d-cantum",
+   "name": "Khat 3D Cantum",
+   "description": "Kaligrafi 3D bersaiz besar yang dicantum terus ke dinding tanpa bingkai."
+  },
+  {
+   "slug": "frame-minimalis-3d",
+   "name": "Frame Minimalis 3D",
+   "description": "Siri frame 3D berlapis dengan reka bentuk minimalis untuk ruang moden."
+  },
+  {
+   "slug": "frame-ayat-doa",
+   "name": "Frame Ayat & Doa",
+   "description": "Frame ayat Al-Quran, surah pilihan, zikir dan doa harian untuk hiasan rumah."
+  },
+  {
+   "slug": "asmaul-husna",
+   "name": "Asmaul Husna",
+   "description": "Frame 99 Nama Allah lengkap dengan terjemahan."
+  },
+  {
+   "slug": "kaabah-masjid",
+   "name": "Kaabah & Masjid",
+   "description": "Hiasan bertemakan Kaabah, Tanah Suci, masjid dan surau."
+  },
+  {
+   "slug": "aksesori-kereta",
+   "name": "Aksesori Kereta",
+   "description": "Hiasan gantung, pewangi dan aksesori praktikal untuk kereta."
+  },
+  {
+   "slug": "cenderahati",
+   "name": "Cenderahati & Hadiah",
+   "description": "Magnet peti sejuk, penunjuk mengaji dan pelbagai buah tangan."
+  },
+  {
+   "slug": "papan-tanda",
+   "name": "Papan Tanda & Label",
+   "description": "Papan tanda untuk kedai, pejabat, rumah dan surau."
+  }
+ ],
+ "products": {
+  "50713110607": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "54113102030": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "masjid",
+    "gold",
+    "berlampu"
+   ]
+  },
+  "40781669837": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "gold",
+    "glitter"
+   ]
+  },
+  "29419264413": {
+   "collection": "asmaul-husna",
+   "tags": [
+    "cermin-akrilik"
+   ]
+  },
+  "29173177510": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "seribu-dinar"
+   ]
+  },
+  "52260663122": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "ayat-kursi",
+    "allah-muhammad",
+    "kaabah"
+   ]
+  },
+  "19976012599": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "25968047416": {
+   "collection": "khat-3d-cantum",
+   "tags": []
+  },
+  "57462151011": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "zikir"
+   ]
+  },
+  "45913445769": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "43532310425": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "40681671472": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "syahadah",
+    "kaabah"
+   ]
+  },
+  "22132128001": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23332162537": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "syahadah"
+   ]
+  },
+  "23332123818": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "22832209237": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "22732092274": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "19676154635": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23232082951": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23388385529": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "doa"
+   ]
+  },
+  "20076104195": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23688384514": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "23432021543": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "al-fatihah"
+   ]
+  },
+  "22432073924": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "22332188932": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "kaabah"
+   ]
+  },
+  "23831845013": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23932080248": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23235252223": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "ayat-kursi",
+    "gold"
+   ]
+  },
+  "20976132563": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "syahadah"
+   ]
+  },
+  "29307143780": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "ayat-kursi"
+   ]
+  },
+  "14696901488": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "bismillah",
+    "assalamualaikum",
+    "terlaris"
+   ]
+  },
+  "29621276787": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "24042507723": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "ayat-kursi"
+   ]
+  },
+  "55960790034": {
+   "collection": "frame-minimalis-3d",
+   "tags": []
+  },
+  "47908784250": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "ayat-kursi",
+    "glitter"
+   ]
+  },
+  "29574202821": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "26373550170": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "48959443972": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "28574863147": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "syahadah",
+    "cermin-akrilik"
+   ]
+  },
+  "43907026019": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "seribu-dinar"
+   ]
+  },
+  "26605895616": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "al-fatihah"
+   ]
+  },
+  "28473436794": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "28123227831": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "al-fatihah"
+   ]
+  },
+  "53310781791": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad",
+    "syahadah"
+   ]
+  },
+  "27273444643": {
+   "collection": "frame-ayat-doa",
+   "tags": []
+  },
+  "24533360879": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "kaabah",
+    "gold"
+   ]
+  },
+  "18495308634": {
+   "collection": "asmaul-husna",
+   "tags": [
+    "cermin-akrilik",
+    "terlaris"
+   ]
+  },
+  "57059492997": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "allah-muhammad",
+    "kaabah"
+   ]
+  },
+  "40680217384": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "syahadah",
+    "zikir"
+   ]
+  },
+  "57158974804": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "gold",
+    "glitter"
+   ]
+  },
+  "13198012249": {
+   "collection": "papan-tanda",
+   "tags": [
+    "kedai-pejabat"
+   ]
+  },
+  "20464768133": {
+   "collection": "papan-tanda",
+   "tags": [
+    "gold",
+    "kedai-pejabat",
+    "terlaris"
+   ]
+  },
+  "23114310080": {
+   "collection": "papan-tanda",
+   "tags": [
+    "kedai-pejabat"
+   ]
+  },
+  "24086883003": {
+   "collection": "papan-tanda",
+   "tags": [
+    "gold",
+    "kedai-pejabat"
+   ]
+  },
+  "24960613204": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir",
+    "terlaris"
+   ]
+  },
+  "25468623792": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir",
+    "terlaris"
+   ]
+  },
+  "25332544641": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "25601903539": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "bismillah",
+    "terlaris"
+   ]
+  },
+  "12460894061": {
+   "collection": "aksesori-kereta",
+   "tags": [
+    "terlaris"
+   ]
+  },
+  "12608900431": {
+   "collection": "cenderahati",
+   "tags": [
+    "kaabah",
+    "magnet",
+    "haji-umrah",
+    "terlaris"
+   ]
+  },
+  "13273346366": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "ayat-kursi",
+    "seribu-dinar",
+    "doa",
+    "tandas",
+    "terlaris"
+   ]
+  },
+  "13630934963": {
+   "collection": "papan-tanda",
+   "tags": [
+    "kaabah",
+    "surau",
+    "kayu",
+    "terlaris"
+   ]
+  },
+  "13837718105": {
+   "collection": "cenderahati",
+   "tags": [
+    "mengaji",
+    "terlaris"
+   ]
+  },
+  "15290446418": {
+   "collection": "aksesori-kereta",
+   "tags": [
+    "ayat-kursi",
+    "seribu-dinar",
+    "zikir",
+    "doa",
+    "terlaris"
+   ]
+  },
+  "16955840954": {
+   "collection": "papan-tanda",
+   "tags": [
+    "bismillah",
+    "assalamualaikum",
+    "kayu",
+    "terlaris"
+   ]
+  },
+  "17842644520": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "doa"
+   ]
+  },
+  "18595781754": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "syahadah",
+    "terlaris"
+   ]
+  },
+  "19587736099": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "19576033565": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "doa"
+   ]
+  },
+  "20596391707": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "21976149554": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "26458036069": {
+   "collection": "kaabah-masjid",
+   "tags": [
+    "masjid",
+    "surau",
+    "terlaris"
+   ]
+  },
+  "23358350501": {
+   "collection": "frame-ayat-doa",
+   "tags": [
+    "doa"
+   ]
+  },
+  "29456301989": {
+   "collection": "aksesori-kereta",
+   "tags": []
+  },
+  "23531851707": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "allah-muhammad"
+   ]
+  },
+  "23454746981": {
+   "collection": "frame-minimalis-3d",
+   "tags": [
+    "kayu"
+   ]
+  },
+  "23764790950": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa",
+    "masjid"
+   ]
+  },
+  "24032565868": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "24710602333": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir"
+   ]
+  },
+  "24584517719": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir"
+   ]
+  },
+  "25168262590": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "26454093985": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir"
+   ]
+  },
+  "25953073280": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "assalamualaikum",
+    "terlaris"
+   ]
+  },
+  "25668361781": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "bismillah"
+   ]
+  },
+  "26366117281": {
+   "collection": "cenderahati",
+   "tags": [
+    "motivasi",
+    "magnet"
+   ]
+  },
+  "26253786971": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "26205132137": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir",
+    "terlaris"
+   ]
+  },
+  "26903958485": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir"
+   ]
+  },
+  "26564011086": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "motivasi"
+   ]
+  },
+  "26858987283": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "27361997933": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "27557245918": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "bismillah"
+   ]
+  },
+  "27407844329": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa",
+    "masjid"
+   ]
+  },
+  "28657746518": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "28557671806": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "29223857803": {
+   "collection": "cenderahati",
+   "tags": [
+    "masjid",
+    "magnet"
+   ]
+  },
+  "29053776537": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "29157227554": {
+   "collection": "khat-3d-cantum",
+   "tags": []
+  },
+  "29203411494": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "29372395295": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "doa"
+   ]
+  },
+  "29553885176": {
+   "collection": "khat-3d-cantum",
+   "tags": [
+    "zikir"
+   ]
+  }
+ }
+}

@@ -144,6 +144,12 @@
     if (state.coll !== "semua") q.set("koleksi", state.coll);
     if (state.rawQuery.trim()) q.set("cari", state.rawQuery.trim());
     if (state.sort !== "sold") q.set("susun", SORT_URL[state.sort]);
+    // Kekalkan parameter lain (gclid, utm_*, dll.) supaya penjejakan iklan tidak hilang
+    try {
+      new URLSearchParams(location.search).forEach(function (v, k) {
+        if (!{ ruang: 1, koleksi: 1, cari: 1, susun: 1 }[k]) q.append(k, v);
+      });
+    } catch (e) { /* abaikan */ }
     var qs = q.toString();
     var url = location.pathname + (qs ? "?" + qs : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) {

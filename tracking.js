@@ -7,9 +7,13 @@
   "use strict";
 
   // ID tag dari Google Ads (AW-XXXXXXXXXX) dan/atau GA4 (G-XXXXXXXXXX). Kosong = tiada tag dimuat.
-  var TAG_IDS = [];
+  var TAG_IDS = ["AW-939345913"];
   // Label conversion Google Ads ("AW-XXXXXXXXXX/abcDEF123"). Kosong = hanya event biasa dihantar.
-  var CONVERSIONS = { shopee_click: "", whatsapp_click: "", phone_click: "" };
+  var CONVERSIONS = {
+    shopee_click: "AW-939345913/GIOICLHoxv0cEPmP9b8D",   // Klik Shopee - Mahligai Seni
+    whatsapp_click: "AW-939345913/oA1iCKvoxv0cEPmP9b8D", // Klik WhatsApp - Mahligai Seni
+    phone_click: "AW-939345913/w-5oCK7oxv0cEPmP9b8D"     // Klik Telefon - Mahligai Seni
+  };
 
   var CLICK_KEYS = ["gclid", "gbraid", "wbraid"];
   var STORE_KEY = "ms_iklan";

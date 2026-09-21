@@ -5,7 +5,7 @@
   "five_star": 92071
  },
  "source": "Ulasan Shopee (lasercutmalaysia)",
- "checked": "2026-09-17",
+ "checked": "2026-09-21",
  "reviews": [
   {
    "id": 110050953940,
@@ -222,6 +222,218 @@
      "lg": "assets/reviews/103270713780_2-lg.webp",
      "w": 720,
      "h": 1280
+    }
+   ]
+  },
+  {
+   "id": 77689923987,
+   "product_id": 22432073924,
+   "product_name": "🔥AL-BAITAR 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home",
+   "buyer": "no****u",
+   "time": 1761570303,
+   "stars": 5,
+   "text": "Kualiti: terbaik\nKali ke 2 beli..sbb cantik n kemas sgt..",
+   "images": [
+    {
+     "sm": "assets/reviews/77689923987_1-sm.webp",
+     "lg": "assets/reviews/77689923987_1-lg.webp",
+     "w": 810,
+     "h": 1080
+    },
+    {
+     "sm": "assets/reviews/77689923987_2-sm.webp",
+     "lg": "assets/reviews/77689923987_2-lg.webp",
+     "w": 810,
+     "h": 1080
+    }
+   ]
+  },
+  {
+   "id": 75555343820,
+   "product_id": 19976012599,
+   "product_name": "🔥FATIH 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home Kufi",
+   "buyer": "sh*****8",
+   "time": 1759840946,
+   "stars": 5,
+   "text": "Good product quality\nGood value for money\nFast delivery\nExcellent service by seller\n⭐️⭐️⭐️⭐️⭐️👍🏼😊",
+   "images": [
+    {
+     "sm": "assets/reviews/75555343820_1-sm.webp",
+     "lg": "assets/reviews/75555343820_1-lg.webp",
+     "w": 1200,
+     "h": 900
+    },
+    {
+     "sm": "assets/reviews/75555343820_2-sm.webp",
+     "lg": "assets/reviews/75555343820_2-lg.webp",
+     "w": 1200,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "id": 41189843445,
+   "product_id": 23332162537,
+   "product_name": "🔥AL-QARDHAWI 3D DESIGN🔥 LA ILAHA ILLALLAH  Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding",
+   "buyer": "an*****9",
+   "time": 1746633846,
+   "stars": 5,
+   "text": "Kualiti: memang cantik\nKetahanan: ada diamond\nAlhamduLillah.. puas hati sangat beli.. berbaloi harga.. memang seperti diidamkan.. sejuk mata memandang..",
+   "images": [
+    {
+     "sm": "assets/reviews/41189843445_1-sm.webp",
+     "lg": "assets/reviews/41189843445_1-lg.webp",
+     "w": 1080,
+     "h": 814
+    },
+    {
+     "sm": "assets/reviews/41189843445_5-sm.webp",
+     "lg": "assets/reviews/41189843445_5-lg.webp",
+     "w": 814,
+     "h": 1080
+    },
+    {
+     "sm": "assets/reviews/41189843445_3-sm.webp",
+     "lg": "assets/reviews/41189843445_3-lg.webp",
+     "w": 1080,
+     "h": 880
+    }
+   ]
+  },
+  {
+   "id": 37634575128,
+   "product_id": 22432073924,
+   "product_name": "🔥AL-BAITAR 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home",
+   "buyer": "ji*****1",
+   "time": 1744811561,
+   "stars": 5,
+   "text": "alhamdulillah frama selamat sampai ke sarawak, terima kasih seller balut dengan elok, cantik sangat sangat..really recommended to buy from here",
+   "images": [
+    {
+     "sm": "assets/reviews/37634575128_1-sm.webp",
+     "lg": "assets/reviews/37634575128_1-lg.webp",
+     "w": 828,
+     "h": 1082
+    }
+   ]
+  },
+  {
+   "id": 31375111788,
+   "product_id": 22732092274,
+   "product_name": "🔥AL-FARABI 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home Kuf",
+   "buyer": "no*****n",
+   "time": 1740148157,
+   "stars": 5,
+   "text": "Kualiti: bagus\nKetahanan: bagus\nProduk yg sgt berkualiti\nSesuai dgn harganya\nPembungkusan yg sangat teliti\nBarang sampai dlm keadaan yg sgt elok",
+   "images": [
+    {
+     "sm": "assets/reviews/31375111788_1-sm.webp",
+     "lg": "assets/reviews/31375111788_1-lg.webp",
+     "w": 960,
+     "h": 1280
+    },
+    {
+     "sm": "assets/reviews/31375111788_2-sm.webp",
+     "lg": "assets/reviews/31375111788_2-lg.webp",
+     "w": 960,
+     "h": 1280
+    },
+    {
+     "sm": "assets/reviews/31375111788_4-sm.webp",
+     "lg": "assets/reviews/31375111788_4-lg.webp",
+     "w": 720,
+     "h": 1280
+    }
+   ]
+  },
+  {
+   "id": 31319715577,
+   "product_id": 23831845013,
+   "product_name": "🔥AL-BATTANI 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home",
+   "buyer": "ev*****a",
+   "time": 1740051620,
+   "stars": 5,
+   "text": "Sangat cantik puas hati !",
+   "images": [
+    {
+     "sm": "assets/reviews/31319715577_1-sm.webp",
+     "lg": "assets/reviews/31319715577_1-lg.webp",
+     "w": 606,
+     "h": 1080
+    },
+    {
+     "sm": "assets/reviews/31319715577_2-sm.webp",
+     "lg": "assets/reviews/31319715577_2-lg.webp",
+     "w": 606,
+     "h": 1080
+    }
+   ]
+  },
+  {
+   "id": 14347347319,
+   "product_id": 19576033565,
+   "product_name": "🔥AL-AZHAR 3D DESIGN🔥Doa Tambah Ilmu Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home Kufi",
+   "buyer": "te*****a",
+   "time": 1709198381,
+   "stars": 5,
+   "text": "Kualiti: Beyond word\nKetahanan: Alhamdulillah\nRecommended. Highly satisfied guaranteed. In sha Allah. Keep it up your good workmanship.",
+   "images": [
+    {
+     "sm": "assets/reviews/14347347319_1-sm.webp",
+     "lg": "assets/reviews/14347347319_1-lg.webp",
+     "w": 960,
+     "h": 1280
+    }
+   ]
+  },
+  {
+   "id": 13752475806,
+   "product_id": 22332188932,
+   "product_name": "🔥AS-SYAFIE 3D DESIGN🔥 KAABAH MEKAH Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home Kufi",
+   "buyer": "st*****h",
+   "time": 1704263334,
+   "stars": 5,
+   "text": "Kualiti: good\nKetahanan: good\nAlhmdulilah safely arrived belum psg lagi tgu husband balik outstation. High quality and beautifully crafted insha allah akn repeat lagi tq seller!",
+   "images": [
+    {
+     "sm": "assets/reviews/13752475806_1-sm.webp",
+     "lg": "assets/reviews/13752475806_1-lg.webp",
+     "w": 1200,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "id": 12407239962,
+   "product_id": 20076104195,
+   "product_name": "🔥KHALID AL-WALID 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Ho",
+   "buyer": "na*****a",
+   "time": 1693187799,
+   "stars": 5,
+   "text": "Ketahanan: tiptop\nKualiti: tiptop\nMashaAllah balutan yg agak memberangsangkan. Memang terbaik. Dekat 10minit baru dapat buka wrapping. Takde defect apa. Alhamdulillah syukur seller yg bagus. Recommended 🤲🏻🤲🏻😉😉😉😉",
+   "images": [
+    {
+     "sm": "assets/reviews/12407239962_1-sm.webp",
+     "lg": "assets/reviews/12407239962_1-lg.webp",
+     "w": 810,
+     "h": 1080
+    }
+   ]
+  },
+  {
+   "id": 11586682101,
+   "product_id": 21976149554,
+   "product_name": "🔥AL-HANAFI 3D DESIGN🔥 Allah Muhammad Minimalist Frame Hiasan Dinding Decoration Wall Art Home Deco Wall Dinding Home Kuf",
+   "buyer": "ro*****4",
+   "time": 1685077163,
+   "stars": 5,
+   "text": "Ketahanan: lightweight\nKualiti: wood with mirror work\nThe design is nice and made from wood. It's light with gold mirror work that's look rich and easy to hang as it is fitted with hook at the back. Nicely secured in bubble wrap and delivery is fast too. Recommended seller.",
+   "images": [
+    {
+     "sm": "assets/reviews/11586682101_1-sm.webp",
+     "lg": "assets/reviews/11586682101_1-lg.webp",
+     "w": 810,
+     "h": 1080
     }
    ]
   }

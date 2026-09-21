@@ -1,0 +1,5 @@
+Contact: mailto:sales@mahligaiseni.com
+Expires: 2027-09-21T00:00:00.000Z
+Preferred-Languages: ms, en
+Canonical: https://mahligaiseni.com/.well-known/security.txt
+Policy: https://mahligaiseni.com/privacy.html

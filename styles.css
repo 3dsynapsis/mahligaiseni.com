@@ -920,3 +920,35 @@ body.is-locked .wa-float, body.menu-open .wa-float { opacity: 0; visibility: hid
 .pd-swipe-hint { margin-top: .5rem; font-size: .75rem; color: var(--ink-soft); text-align: center; }
 @media (hover: hover) and (pointer: fine) { .pd-swipe-hint { display: none; } }
 .pd-noimg { display: grid; place-items: center; height: 100%; color: var(--ink-soft); }
+
+/* ---------- maklumat syarikat (footer) ---------- */
+.footer-en { font-style: italic; }
+.footer-company { margin-top: 1rem; font-style: normal; font-size: .85rem; line-height: 1.6; color: #cbbfae; }
+.footer-company strong { color: #e9e0d0; font-weight: 600; }
+.footer-company a { color: #e9e0d0; }
+.footer-company a:hover { color: var(--champagne-2); }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.footer-legal a { display: inline-flex; align-items: center; min-height: 44px; color: #e9e0d0; text-decoration: none; }
+.footer-legal a:hover { color: var(--champagne-2); text-decoration: underline; }
+
+/* ---------- halaman About / Privacy / Terms ---------- */
+.doc-header { background: var(--paper); border-bottom: 1px solid var(--line-soft); }
+.doc-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
+.doc-brand img { display: block; height: 46px; width: auto; }
+.doc-back { color: var(--gold-text); font-weight: 600; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.doc-back:hover { text-decoration: underline; }
+.doc { max-width: 820px; padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 5rem); }
+.doc h1 { font-family: var(--f-display); font-weight: 500; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; color: var(--ink); margin: 0 0 .75rem; }
+.doc-jump { margin: 0 0 2rem; color: var(--ink-soft); }
+.doc-jump a { color: var(--gold-text); font-weight: 600; }
+.doc-lang { padding-top: 1.5rem; border-top: 1px solid var(--line); margin-top: 1.5rem; }
+.doc-lang + .doc-lang { margin-top: 3rem; }
+.doc h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.5rem, 3.6vw, 1.9rem); color: var(--ink); margin: 0 0 .5rem; }
+.doc h3 { font-family: var(--f-body); font-weight: 700; font-size: 1.05rem; color: var(--ink); margin: 1.75rem 0 .5rem; }
+.doc p, .doc li { color: var(--ink); line-height: 1.7; font-size: 1rem; }
+.doc ul { padding-left: 1.25rem; }
+.doc li + li { margin-top: .35rem; }
+.doc a { color: var(--gold-text); }
+.doc-meta { color: var(--ink-soft) !important; font-size: .9rem !important; }
+.doc-contact { list-style: none; padding: 1rem 1.25rem !important; background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--r); }
+.doc-footer .footer-base { padding-block: 1.25rem 1.75rem; }

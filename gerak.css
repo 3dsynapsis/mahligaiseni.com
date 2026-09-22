@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════════════════════
+   Mahligai Seni — lapisan gerak (Motion) + kemasan UI/UX
+   Dimuat SELEPAS styles.css. Palet, font & susun atur kekal dari styles.css;
+   fail ini hanya menambah ikon SVG, sasaran ketik, dan keadaan awal animasi.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Ikon SVG garis (ganti glyph anak panah / bintang) ── */
+.ik {
+  width: 1em; height: 1em; flex: none; display: inline-block;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+  vertical-align: -.14em;
+}
+.ik-bintang { fill: currentColor; stroke-width: 1.2; }
+/* Ikon hiasan berdiri sendiri: emas champagne (versi AA atas krim) */
+.see-all .ik, .rv-product .ik, .rb-count .ik, .footer-top .ik { color: var(--gold-text); }
+.see-all .ik { transition: transform .3s var(--ease); }
+.see-all:hover .ik { transform: translateX(3px); }
+.room-more .ik { color: var(--champagne-2); vertical-align: -.18em; }
+@media (max-width: 439px) { .room-more > .ik { display: none; } }
+.pick-arrow .ik { width: 18px; height: 18px; }
+.review-btn { display: inline-grid; place-items: center; }
+.review-btn .ik { width: 20px; height: 20px; }
+.card-shop .ik { width: 14px; height: 14px; }
+.footer-top { gap: .35em; }
+.site-footer .ik, .footer-top .ik { color: var(--champagne); }
+.btn-gold .ik { color: inherit; }
+.feature-row .ik-bintang { width: .95em; height: .95em; margin-left: 1px; color: var(--gold-text); vertical-align: -.12em; }
+.feature-row p .kira { font-variant-numeric: tabular-nums; }
+.rv-stars { display: flex; gap: 2px; letter-spacing: 0; }
+.rv-stars .ik-bintang { width: 16px; height: 16px; }
+.rb-score, .rb-count { font-variant-numeric: tabular-nums; }
+/* Anak panah menu laci: SVG (topeng) menggantikan glyph teks */
+.drawer-links a::after {
+  content: ""; flex: none; width: 18px; height: 18px;
+  background-color: var(--champagne);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ── Sasaran ketik ≥ 44px ── */
+.dot { width: 44px; }
+.search-clear { width: 44px; height: 44px; right: 1px; }
+.rv-product { display: inline-flex; align-items: center; gap: .35em; min-height: 44px; align-self: flex-start; }
+.pd-desc-toggle { min-height: 44px; }
+.rv-thumb { min-width: 44px; min-height: 44px; }
+
+/* ── Fokus papan kekunci lebih jelas atas permukaan gelap ── */
+.hero :focus-visible, .room-card:focus-visible { outline: 2px solid var(--champagne-2); outline-offset: 3px; }
+.wa-float:focus-visible { outline: 3px solid var(--espresso); outline-offset: 3px; }
+.pick:focus-visible { outline: 2px solid var(--gold-text); outline-offset: 4px; border-radius: var(--r-lg); }
+
+/* ── Bar kemajuan skrol (dicipta oleh gerak.js) ── */
+.bar-skrol {
+  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 50;
+  background: linear-gradient(90deg, var(--gold-text), var(--champagne), var(--champagne-2));
+  transform-origin: 0 50%; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ── Tajuk hero: kata demi kata ── */
+.hero-kata { display: inline-block; will-change: transform, opacity, filter; }
+
+/* ═══ Keadaan awal — HANYA bila html.gerak (Motion ada & animasi dibenarkan).
+   Tanpa kelas ini (tiada JS, Motion gagal, atau "kurangkan animasi") laman lengkap. ═══ */
+.gerak .hero-copy > * { animation: none; }
+.gerak .hero-eyebrow:not(.gm-in),
+.gerak .hero-title:not(.gm-in),
+.gerak .hero-sub:not(.gm-in),
+.gerak .hero-cta:not(.gm-in),
+.gerak .hero-cap:not(.gm-in),
+.gerak .hero-ctrl:not(.gm-in) { opacity: 0; }
+
+.gerak :is(
+  .rooms .row-head, .room-grid > li,
+  .story-img, .story-copy > *, .feature-row > li,
+  .picks .row-head, .pick-row > li,
+  .catalogue .section-head, .toolbar,
+  .reviews-head, .review-track, .review-nav,
+  .visit-head > *, .visit-media, .visit-info
+):not(.gm-in) { opacity: 0; }
+
+/* Modal & latar: Motion (spring) menggantikan animasi CSS */
+.gerak .modal-panel, .gerak .modal-backdrop { animation: none; }
+.modal-klon { pointer-events: none; z-index: 81; }
+
+/* Butang WhatsApp terapung: muncul (spring) selepas ~50% skrin ditatal */
+.gerak .wa-float:not(.nampak) { opacity: 0; visibility: hidden; pointer-events: none; transform: scale(.6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-skrol { display: none; }
+}

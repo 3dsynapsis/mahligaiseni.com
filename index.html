@@ -18,7 +18,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="gerak.css">
+  <script>
+    (function (root) {
+      root.classList.add("js");
+      /* Animasi Motion hanya bila pengguna TIDAK memilih "kurangkan animasi". Kelas "gerak"
+         menyorok elemen sebelum dianimasi; ia dibuang jika Motion/gerak.js gagal dimuat
+         (atau lambat melebihi 3 saat) supaya kandungan tidak pernah hilang. */
+      if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      root.classList.add("gerak");
+      function semak() { if (!window.Motion || !window.__gerak) root.classList.remove("gerak"); }
+      setTimeout(semak, 3000);
+      document.addEventListener("DOMContentLoaded", semak);
+    })(document.documentElement);
+  </script>
   <script src="tracking.js"></script>
   <script type="application/ld+json">
   {
@@ -107,7 +120,7 @@
           <p class="hero-eyebrow">Lebih Daripada Hiasan</p>
           <h1 class="hero-title">Cipta <br class="m">Suasana <br class="m">Rumah <br class="m">Yang Lebih <br class="m">Bermakna</h1>
           <p class="hero-sub">Seni Islamik yang menghidupkan ruang, menenangkan jiwa.</p>
-          <a class="btn btn-gold hero-cta" href="#pilihan">Lihat Koleksi Pilihan <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-gold hero-cta" href="#pilihan">Lihat Koleksi Pilihan <svg class="ik arr" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
 
         <div class="hero-foot">
@@ -135,7 +148,7 @@
       <div class="wrap">
         <div class="row-head">
           <h2 id="ruang-title" class="kicker-title">Inspirasi Mengikut Ruang</h2>
-          <a class="see-all" href="#katalog">Lihat Semua <span aria-hidden="true">&rarr;</span></a>
+          <a class="see-all" href="#katalog">Lihat Semua <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
         <ul class="room-grid">
           <li>
@@ -144,7 +157,7 @@
               <span class="room-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2.5"/><path d="M3 13.5a1.5 1.5 0 0 1 3 0V15h12v-1.5a1.5 1.5 0 0 1 3 0V18H3Z"/><path d="M5 18v1.5M19 18v1.5"/></svg>
                 <span class="room-name">Ruang Tamu</span>
-                <span class="room-more">Lihat Koleksi <span aria-hidden="true">&rarr;</span></span>
+                <span class="room-more">Lihat Koleksi <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -154,7 +167,7 @@
               <span class="room-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18.5V7M3 14h18v4.5M21 14v-2.5a2.5 2.5 0 0 0-2.5-2.5H11v5"/><path d="M5.5 12.2a1.7 1.7 0 1 0 3.4 0 1.7 1.7 0 0 0-3.4 0Z"/></svg>
                 <span class="room-name">Bilik Tidur</span>
-                <span class="room-more">Lihat Koleksi <span aria-hidden="true">&rarr;</span></span>
+                <span class="room-more">Lihat Koleksi <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -164,7 +177,7 @@
               <span class="room-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11.5C5 7.5 12 5 12 3c0 2 7 4.5 7 8.5V20"/><path d="M3 20h18M9.5 20v-4a2.5 2.5 0 0 1 5 0v4"/></svg>
                 <span class="room-name">Ruang Solat</span>
-                <span class="room-more">Lihat Koleksi <span aria-hidden="true">&rarr;</span></span>
+                <span class="room-more">Lihat Koleksi <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -174,7 +187,7 @@
               <span class="room-label">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5h18M5 10.5V20M19 10.5V20M14.5 10.5V15h4.5"/><path d="M8 10.5V4.5h8v6"/></svg>
                 <span class="room-name">Ruang Kerja</span>
-                <span class="room-more">Lihat Koleksi <span aria-hidden="true">&rarr;</span></span>
+                <span class="room-more">Lihat Koleksi <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -190,7 +203,7 @@
           <p class="kicker">Seni Yang Menghidupkan Rumah</p>
           <h2 id="cerita-title" class="story-title">Setiap Karya Ada Cerita</h2>
           <p class="story-text">Dihasilkan dengan ketelitian, diinspirasikan daripada ayat suci, untuk menemani momen bermakna anda.</p>
-          <a class="btn btn-dark" href="#lokasi">Kenali Mahligai Seni <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-dark" href="#lokasi">Kenali Mahligai Seni <svg class="ik arr" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </section>
@@ -216,7 +229,7 @@
         <li>
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 26.5S4.5 19.6 4.5 11.8A6 6 0 0 1 16 9.3a6 6 0 0 1 11.5 2.5c0 7.8-11.5 14.7-11.5 14.7Z"/></svg>
           <h3>Disayangi Ramai</h3>
-          <p>4.9<span aria-hidden="true">&#9733;</span><span class="sr-only"> bintang</span> dari ribuan pelanggan</p>
+          <p><span class="kira" data-ke="4.9" data-dp="1">4.9</span><svg class="ik ik-bintang" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><span class="sr-only"> bintang</span> dari ribuan pelanggan</p>
         </li>
       </ul>
     </section>
@@ -226,7 +239,7 @@
       <div class="wrap">
         <div class="row-head">
           <h2 id="pilihan-title" class="section-title">Koleksi Pilihan</h2>
-          <a class="see-all" href="#katalog">Lihat Semua <span aria-hidden="true">&rarr;</span></a>
+          <a class="see-all" href="#katalog">Lihat Semua <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
         <ul class="pick-row">
           <li>
@@ -235,7 +248,7 @@
               <span class="pick-body">
                 <span class="pick-name">Ayatul Kursi Arch</span>
                 <span class="pick-sub">Black gold berlampu &amp; timbul, 123cm x 83cm</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -245,7 +258,7 @@
               <span class="pick-body">
                 <span class="pick-name">Mekah Al-Kursi</span>
                 <span class="pick-sub">Frame ALLAH, Muhammad &amp; Ayatul Kursi</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -255,7 +268,7 @@
               <span class="pick-body">
                 <span class="pick-name">Ayatul Kursi Mishary Al-Afasy</span>
                 <span class="pick-sub">Ukiran 3D timbul gold, 93cm x 117cm</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -265,7 +278,7 @@
               <span class="pick-body">
                 <span class="pick-name">Bumi Berzikir Al-Isra 44</span>
                 <span class="pick-sub">Frame Surah Al-Isra ayat 44, 119cm x 84cm</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -275,7 +288,7 @@
               <span class="pick-body">
                 <span class="pick-name">Masjid Nabawi Berlampu</span>
                 <span class="pick-sub">Frame gold beserta khat selawat</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -285,7 +298,7 @@
               <span class="pick-body">
                 <span class="pick-name">Shahadah Kiswah Inspired</span>
                 <span class="pick-sub">Frame gold hitam, 97cm x 97cm</span>
-                <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+                <span class="pick-arrow" aria-hidden="true"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
               </span>
             </a>
           </li>
@@ -390,8 +403,8 @@
         </div>
         <div class="review-track" id="review-track" role="region" tabindex="0" aria-label="Ulasan pelanggan, tatal ke kanan untuk lagi"></div>
         <div class="review-nav">
-          <button type="button" class="review-btn" id="review-prev" aria-label="Ulasan sebelumnya">&larr;</button>
-          <button type="button" class="review-btn" id="review-next" aria-label="Ulasan seterusnya">&rarr;</button>
+          <button type="button" class="review-btn" id="review-prev" aria-label="Ulasan sebelumnya"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow-l"/></svg></button>
+          <button type="button" class="review-btn" id="review-next" aria-label="Ulasan seterusnya"><svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
@@ -432,7 +445,7 @@
 
             <div class="visit-actions">
               <a class="btn btn-dark" href="https://maps.app.goo.gl/uEPovgT8h4JL3fDr8" target="_blank" rel="noopener">
-                Dapatkan arah <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka Google Maps dalam tab baharu)</span>
+                Dapatkan arah <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-ext"/></svg><span class="sr-only">(buka Google Maps dalam tab baharu)</span>
               </a>
               <a class="visit-wa" href="https://wa.me/60149272339?text=Assalamualaikum%2C%20saya%20ingin%20singgah%20ke%20premis%20Mahligai%20Seni." target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-icon"/></svg>
@@ -476,7 +489,7 @@
           diselesaikan di Shopee. Harga dan stok di sini mungkin berbeza; rujuk halaman Shopee untuk maklumat terkini.
         </p>
         <a class="btn btn-gold" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">
-          Lawati Kedai Shopee <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka tab baharu)</span>
+          Lawati Kedai Shopee <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-ext"/></svg><span class="sr-only">(buka tab baharu)</span>
         </a>
       </div>
     </div>
@@ -487,7 +500,7 @@
         <a href="privacy.html">Dasar Privasi / Privacy</a>
         <a href="terms.html">Terma / Terms</a>
       </nav>
-      <a href="#atas" class="footer-top">Kembali ke atas &uarr;</a>
+      <a href="#atas" class="footer-top">Kembali ke atas <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a>
     </div>
   </footer>
 
@@ -516,7 +529,7 @@
         <li><a href="#lokasi" data-menu-link>Lokasi &amp; Waktu Operasi</a></li>
       </ul>
       <div class="drawer-actions">
-        <a class="btn btn-gold" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">Kedai Shopee <span aria-hidden="true">&#8599;</span><span class="sr-only">(buka tab baharu)</span></a>
+        <a class="btn btn-gold" href="https://shopee.com.my/lasercutmalaysia" target="_blank" rel="noopener">Kedai Shopee <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-ext"/></svg><span class="sr-only">(buka tab baharu)</span></a>
         <a class="btn btn-line-light" href="https://wa.me/60149272339?text=Assalamualaikum%20Mahligai%20Seni%2C%20saya%20ingin%20bertanya%20tentang%20produk%20anda." target="_blank" rel="noopener">WhatsApp 014-927 2339<span class="sr-only"> (buka tab baharu)</span></a>
         <a class="btn btn-line-light" href="tel:+60149272339">Telefon 014-927 2339</a>
       </div>
@@ -551,10 +564,19 @@
       <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
       <path d="M9 8.5c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .5.4l.7 1.6c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.3 0 .5.5.9 1.3 1.7 2.3 2.2.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.3.6-.2.9-1 1.6-1.9 1.6-2.9-.2-5.5-2.8-5.8-5.6 0-.8.3-1.5.9-2Z" fill="currentColor"/>
     </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19.5 12h-15M10.5 6l-6 6 6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7.5 16.5l9-9M9 7.5h7.5V15"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19.5v-15M6 10.5l6-6 6 6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8Z"/></symbol>
   </svg>
 
   <script src="app.js" defer></script>
   <script src="reviews.js" defer></script>
   <script src="home.js" defer></script>
+  <!-- Motion (motion.dev, pustaka vanilla oleh pembuat Framer Motion) — versi dikunci.
+       Dimuat SELEPAS skrip laman supaya CDN yang lambat tidak melambatkan katalog. -->
+  <script src="https://cdn.jsdelivr.net/npm/motion@13.4.0/dist/motion.js" defer></script>
+  <script src="gerak.js" defer></script>
 </body>
 </html>

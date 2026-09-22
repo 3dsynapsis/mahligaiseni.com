@@ -405,7 +405,7 @@
           '<span class="price">' + priceHTML(p.price_min, p.price_max) + '</span>' +
           (sold ? '<span class="sold">' + esc(sold) + '</span>' : "") +
         '</div>' +
-        '<a class="card-shop" href="' + esc(p.url) + '" target="_blank" rel="noopener">Beli di Shopee <span aria-hidden="true">&#8599;</span><span class="sr-only">: ' + esc(p._name) + ' (tab baharu)</span></a>' +
+        '<a class="card-shop" href="' + esc(p.url) + '" target="_blank" rel="noopener">Beli di Shopee <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-ext"/></svg><span class="sr-only">: ' + esc(p._name) + ' (tab baharu)</span></a>' +
       '</div>' +
     '</article></li>';
   }
@@ -441,6 +441,8 @@
       els.moreNote.textContent = "";
       els.moreProgress.hidden = true;
     }
+    // Isyarat untuk gerak.js (animasi kad); tiada kesan jika gerak.js tidak dimuat
+    document.dispatchEvent(new CustomEvent("katalog:render", { detail: { from: from } }));
   }
 
   /* ---------- routing + modal ---------- */
@@ -508,6 +510,8 @@
   }
 
   function closeModalUI() {
+    // Dihantar sebelum modal disorok supaya gerak.js boleh animasikan keluar (salinan visual)
+    document.dispatchEvent(new CustomEvent("modal:tutup", { detail: { modal: els.modal } }));
     els.modal.hidden = true;
     setInert(false);
     document.body.classList.remove("is-locked");
@@ -563,6 +567,7 @@
       els.modal.hidden = false;
       setInert(true);
       document.body.classList.add("is-locked");
+      document.dispatchEvent(new CustomEvent("modal:buka", { detail: { modal: els.modal } }));
     }
   }
 
@@ -774,6 +779,7 @@
     if (!el || !imObj) return;
     var src = img(imObj.lg);
     if (el.getAttribute("src") !== src) {
+      if (el.getAttribute("src")) document.dispatchEvent(new CustomEvent("modal:gambar", { detail: { img: el, arah: i < 0 || i >= current.idx ? 1 : -1 } }));
       el.classList.add("is-loading");
       el.onload = el.onerror = function () { el.classList.remove("is-loading"); };
       el.setAttribute("src", src);

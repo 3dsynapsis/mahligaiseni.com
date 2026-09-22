@@ -192,7 +192,8 @@
   });
 
   /* ---------- Pendedahan lembut semasa tatal ---------- */
-  if (!reduceMotion && "IntersectionObserver" in window) {
+  // Bila html.gerak aktif, gerak.js (Motion) mengambil alih pendedahan ini
+  if (!reduceMotion && !document.documentElement.classList.contains("gerak") && "IntersectionObserver" in window) {
     var targets = document.querySelectorAll(".rooms .row-head, .room-grid > li, .story-copy, .feature-row > li, .picks .row-head, .pick-row > li");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

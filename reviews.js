@@ -55,10 +55,10 @@
       '<div class="rv-photo"><img src="' + esc(main.sm) + '" srcset="' + esc(main.sm) + ' 480w, ' + esc(main.lg) + ' 1200w" sizes="(min-width: 1080px) 380px, 82vw" alt="Gambar pelanggan: ' + esc(shortName(r.product_name)) + '" width="' + (main.w || 1200) + '" height="' + (main.h || 1200) + '" loading="lazy" decoding="async"></div>' +
       thumbs +
       '<div class="rv-body">' +
-        '<p class="rv-stars"><span aria-hidden="true">' + "★★★★★".slice(0, r.stars) + '</span><span class="sr-only">' + r.stars + ' bintang</span></p>' +
+        '<p class="rv-stars"><span aria-hidden="true">' + new Array(r.stars + 1).join('<svg class="ik ik-bintang" focusable="false"><use href="#i-star"/></svg>') + '</span><span class="sr-only">' + r.stars + ' bintang</span></p>' +
         '<blockquote class="rv-text">' + textHTML(r.text) + '</blockquote>' +
         '<p class="rv-meta"><span class="rv-buyer">' + esc(r.buyer) + '</span> &middot; <time datetime="' + new Date(r.time * 1000).toISOString().slice(0, 10) + '">' + date(r.time) + '</time></p>' +
-        '<a class="rv-product" href="#produk/' + r.product_id + '">' + esc(shortName(r.product_name)) + ' <span aria-hidden="true">&rarr;</span></a>' +
+        '<a class="rv-product" href="#produk/' + r.product_id + '">' + esc(shortName(r.product_name)) + ' <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>' +
       '</div>' +
     '</article>';
   }
@@ -70,7 +70,7 @@
     note.textContent = reviews.length + " ulasan 5 bintang bergambar terkini dari pembeli Shopee · Terbaru dahulu";
     if (sr.rating) {
       badge.innerHTML = '<span class="rb-score">' + Number(sr.rating).toFixed(1) + '<small>/5</small></span>' +
-        '<span class="rb-count">' + compact(sr.total_ratings) + ' penilaian kedai di Shopee <span aria-hidden="true">&#8599;</span></span>' +
+        '<span class="rb-count">' + compact(sr.total_ratings) + ' penilaian kedai di Shopee <svg class="ik" aria-hidden="true" focusable="false"><use href="#i-ext"/></svg></span>' +
         '<span class="sr-only">(buka tab baharu)</span>';
       badge.href = SHOP_URL;
     } else {
@@ -118,6 +118,7 @@
       if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
     });
     syncNav();
+    document.dispatchEvent(new CustomEvent("ulasan:render"));
     // Pautan terus ke #ulasan: tatal selepas bahagian ini dipaparkan
     if (location.hash === "#ulasan") requestAnimationFrame(function () { section.scrollIntoView(); });
   }

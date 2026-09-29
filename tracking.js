@@ -1,13 +1,19 @@
-/* Mahligai Seni - penjejakan iklan Google
-   - Simpan gclid/gbraid/wbraid dari URL (90 hari) supaya klik iklan boleh dikaitkan dengan tindakan pelawat.
-   - Tambah rujukan iklan ke mesej WhatsApp (wa.me ?text=) bila pelawat datang dari iklan.
-   - Hantar event klik: shopee_click, whatsapp_click, phone_click.
-   Tag Google hanya dimuat bila TAG_IDS diisi. */
+/* Mahligai Seni - penjejakan iklan (Google Ads + GA4) & tanda sumber lead
+   - Simpan gclid/gbraid/wbraid dari URL (90 hari) untuk kegunaan akan datang.
+   - Tambah TANDA SUMBER ke mesej WhatsApp (wa.me ?text=), sama cara dgn
+     medallanyard.com (website/js/sumber.js dlm repo SaaS):
+       (ref: G-Ads)   = datang dari iklan Google (30 hari)
+       (ref: ChatGPT) = datang dari iklan ChatGPT (utm_source=chatgpt & utm_medium=cpc)
+       (ref: Web)     = pelawat biasa
+     ⚠️ Teks ini DIBACA oleh SaaS (dashboard/leads/_laporan_harian.py ->
+     TANDA_GOOGLE / TANDA_CHATGPT). Tukar di sini = tukar di sana juga.
+   - Hantar event klik: shopee_click, whatsapp_click, phone_click (ke Google Ads & GA4).
+   GA4 = property "Mahligai Seni" (BERASINGAN dari Medal — jangan campur jenama). */
 (function () {
   "use strict";
 
   // ID tag dari Google Ads (AW-XXXXXXXXXX) dan/atau GA4 (G-XXXXXXXXXX). Kosong = tiada tag dimuat.
-  var TAG_IDS = ["AW-939345913"];
+  var TAG_IDS = ["AW-939345913", "G-HRW2QRWZC1"];
   // Label conversion Google Ads ("AW-XXXXXXXXXX/abcDEF123"). Kosong = hanya event biasa dihantar.
   var CONVERSIONS = {
     shopee_click: "AW-939345913/GIOICLHoxv0cEPmP9b8D",   // Klik Shopee - Mahligai Seni
@@ -20,22 +26,36 @@
   var MAX_AGE = 90 * 86400000;
 
   function save(v) { try { localStorage.setItem(STORE_KEY, JSON.stringify(v)); } catch (e) { /* abaikan */ } }
-  function saved() {
-    try {
-      var v = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
-      if (v && v.id && Date.now() - v.t < MAX_AGE) return v;
-    } catch (e) { /* abaikan */ }
-    return null;
-  }
 
-  // Baca ID klik sebelum app.js menulis semula URL
+  // Sumber iklan terakhir (last click) — 30 hari, sama dgn laman Medal.
+  var SUMBER_KEY = "ms_sumber";
+  var SUMBER_AGE = 30 * 86400000;
+  var TANDA = { gads: "(ref: G-Ads)", chatgpt: "(ref: ChatGPT)", web: "(ref: Web)" };
+  var sumberIni = null;   // sandaran bila storan disekat (mod peribadi)
+
+  // Baca ID klik & sumber sebelum app.js menulis semula URL
   try {
     var q = new URLSearchParams(location.search);
     for (var i = 0; i < CLICK_KEYS.length; i++) {
       var id = q.get(CLICK_KEYS[i]);
-      if (id) { save({ key: CLICK_KEYS[i], id: id, t: Date.now() }); break; }
+      if (id) { save({ key: CLICK_KEYS[i], id: id, t: Date.now() }); sumberIni = "gads"; break; }
     }
+    var src = (q.get("utm_source") || "").toLowerCase();
+    var paid = /^(cpc|ppc|paid)/i.test(q.get("utm_medium") || "");
+    if (paid && src === "google") sumberIni = "gads";
+    // ChatGPT biasa (bukan iklan) tambah utm_source=chatgpt.com tanpa medium
+    // -> itu bukan iklan, jadi syarat cpc WAJIB.
+    if (paid && src === "chatgpt") sumberIni = "chatgpt";
+    if (sumberIni) localStorage.setItem(SUMBER_KEY, JSON.stringify({ s: sumberIni, t: Date.now() }));
   } catch (e) { /* abaikan */ }
+
+  function sumber() {
+    try {
+      var v = JSON.parse(localStorage.getItem(SUMBER_KEY) || "null");
+      if (v && TANDA[v.s] && Date.now() - v.t < SUMBER_AGE) return v.s;
+    } catch (e) { /* abaikan */ }
+    return sumberIni || "web";
+  }
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
@@ -55,17 +75,15 @@
     if (CONVERSIONS[name]) window.gtag("event", "conversion", { send_to: CONVERSIONS[name] });
   }
 
-  // Tambah rujukan iklan ke mesej WhatsApp (sekali sahaja setiap pautan)
+  // Tambah tanda sumber ke mesej WhatsApp (sekali sahaja setiap pautan)
   function tagWhatsApp(a) {
-    var ref = saved();
-    if (!ref || a.getAttribute("data-ref-added")) return;
     try {
       var url = new URL(a.href);
-      var text = url.searchParams.get("text") || "";
-      url.searchParams.set("text", text + "\n\n(Ruj. iklan: " + ref.id + ")");
+      var text = url.searchParams.get("text") || "Assalamualaikum Mahligai Seni.";
+      if (text.indexOf("(ref:") !== -1) return;   // dah bertanda
+      url.searchParams.set("text", text.replace(/\s+$/, "") + "\n\n" + TANDA[sumber()]);
       a.href = url.toString();
-      a.setAttribute("data-ref-added", "1");
-    } catch (e) { /* abaikan */ }
+    } catch (e) { /* pautan pelik — biar asal, jualan lebih penting */ }
   }
 
   // Fasa capture: pautan dikemas kini sebelum pelayar membukanya
